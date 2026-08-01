@@ -1,0 +1,42 @@
+@startuml packages-smart-city
+title Smart City — diagramme de paquetage (domaines fonctionnels)
+
+package "smartcity.traffic" as T {
+  note right : Gestion du trafic,\nfeux adaptatifs, ITS
+}
+
+package "smartcity.utilities" as U {
+  note right : Eau, électricité,\nmétrology, facturation liée
+}
+
+package "smartcity.safety" as S {
+  note right : Sécurité publique,\ncorrélation d'événements
+}
+
+package "smartcity.emergency" as E {
+  note right : Services d'urgence,\ndispatch, procédures
+}
+
+package "smartcity.communication" as C {
+  note right : Portail citoyen,\nnotifications, canaux
+}
+
+package "smartcity.platform" as P {
+  package "ingestion" as P1
+  package "analytics" as P2
+  package "integration" as P3
+  note bottom of P : Bus d'événements, API,\nESB / iPaaS (selon choix)
+}
+
+package "smartcity.governance" as G {
+  note right : Identité, accès,\naudit, conformité (RGPD)
+}
+
+T ..> P : événements & requêtes
+U ..> P
+S ..> P
+E ..> P
+C ..> P
+P ..> G : politiques sécurité\n& traçabilité
+
+@enduml

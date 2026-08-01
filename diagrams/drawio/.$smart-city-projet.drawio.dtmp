@@ -1,0 +1,141 @@
+<mxfile host="Electron" agent="SmartCity-UML" pages="8">
+  <diagram id="page-pkg" name="01 - Paquetage">
+    <mxGraphModel dx="1030" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontStyle=1" value="Smart City — Diagramme de paquetage" vertex="1">
+          <mxGeometry height="30" width="520" x="280" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-traffic" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="smartcity.traffic&#xa;Trafic, feux adaptatifs" vertex="1">
+          <mxGeometry height="90" width="200" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-util" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="smartcity.utilities&#xa;Eau, électricité" vertex="1">
+          <mxGeometry height="90" width="200" x="320" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-safety" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;" value="smartcity.safety&#xa;Sécurité publique" vertex="1">
+          <mxGeometry height="90" width="200" x="560" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-emerg" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" value="smartcity.emergency&#xa;Urgences, dispatch" vertex="1">
+          <mxGeometry height="90" width="200" x="80" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-comm" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="smartcity.communication&#xa;Portail, notifications" vertex="1">
+          <mxGeometry height="90" width="200" x="320" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-platform" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=120;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;" value="smartcity.platform&#xa;ingestion, analytics, intégration" vertex="1">
+          <mxGeometry height="90" width="220" x="560" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg-gov" parent="1" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=100;tabHeight=24;html=1;whiteSpace=wrap;fillColor=#eeeeee;strokeColor=#333333;" value="smartcity.governance&#xa;IAM, audit, conformité" vertex="1">
+          <mxGeometry height="90" width="240" x="800" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1" edge="1" parent="1" source="pkg-traffic" style="endArrow=open;dashed=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="pkg-platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep2" edge="1" parent="1" source="pkg-util" style="endArrow=open;dashed=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="pkg-platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep3" edge="1" parent="1" source="pkg-safety" style="endArrow=open;dashed=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;endFill=0;" target="pkg-platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep4" edge="1" parent="1" source="pkg-platform" style="endArrow=open;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=0;" target="pkg-gov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep5" edge="1" parent="1" source="pkg-emerg" style="endArrow=open;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;endFill=0;" target="pkg-platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep6" edge="1" parent="1" source="pkg-comm" style="endArrow=open;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.65;entryDx=0;entryDy=0;endFill=0;" target="pkg-platform">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffffc5;strokeColor=#d6b656;size=14;fontSize=11;align=left;" value="Lecture : les domaines métier s&#39;appuient sur la plateforme (données, intégration) ; celle-ci dépend des politiques de gouvernance (IAM, audit, conformité)." vertex="1">
+          <mxGeometry height="90" width="280" x="820" y="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-comp" name="02 - Composants">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ct1" value="Diagramme de composants — reproduis la vue de `components-smart-city.puml` avec formes UML Component / Node" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="520" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-placeholder" value="Glisse des composants depuis la palette UML" style="shape=component;align=left;spacingLeft=36;verticalAlign=top;spacingTop=4;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="180" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-uc" name="03 - Cas d&#39;utilisation">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uc1" value="Cas d&#39;utilisation — délimiter le système (rectangle) puis placer acteurs et ellipses" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-boundary" value="Système Smart City" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingTop=6;spacingLeft=6;fillColor=none;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="90" width="520" height="360" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-class" name="04 - Classes">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cl1" value="Classes — transverses + un paquet par domaine (sous-pages ou zones colorées)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="class-sample" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SensorReading&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ readingId: UUID&lt;br&gt;+ observedAt: DateTime&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getLocation()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="200" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-seq" name="05 - Séquence (S1 urgence)">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sq1" value="Séquence — scénario S1 (alerte urgence). Ajoute lifelines : Citoyen, Edge, Bus, Règles, Orchestration, Incidents, Notification" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="720" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-act" name="06 - Activité (alerte)">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ac1" value="Activité — processus de traitement d&#39;alerte (voir `activity-traitement-alerte.puml`)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="680" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-state" name="07 - État (Alert)">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="st1" value="Machine à états — cycle de vie d&#39;une Alert (voir `state-alert.puml`)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="560" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-deploy" name="08 - Déploiement">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dp1" value="Déploiement — nœuds : Edge, Cloud, SOC / centre opérationnel ; artefacts : services, BDD" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="700" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,72 @@
+@startuml classes-transverses
+title Smart City — classes transverses (brouillon)
+
+class GeoLocation {
+  + latitude : Double
+  + longitude : Double
+  + accuracyMeters : Double
+}
+
+class SensorDevice {
+  + deviceId : String
+  + type : String
+  + firmwareVersion : String
+  + lastSeenAt : DateTime
+}
+
+class SensorReading {
+  + readingId : UUID
+  + observedAt : DateTime
+  + payload : Map<String, Object>
+  + quality : String
+}
+
+class CitizenProfile {
+  + citizenId : UUID
+  + contactPrefs : String
+  + consentFlags : Map<String, Boolean>
+}
+
+class Alert {
+  + alertId : UUID
+  + severity : String
+  + createdAt : DateTime
+  + status : String
+}
+
+class Incident {
+  + incidentId : UUID
+  + category : String
+  + openedAt : DateTime
+  + closedAt : DateTime
+}
+
+class WorkOrder {
+  + orderId : UUID
+  + assignedTo : String
+  + priority : String
+  + state : String
+}
+
+class Notification {
+  + notificationId : UUID
+  + channel : String
+  + sentAt : DateTime
+  + deliveryStatus : String
+}
+
+SensorDevice "1" --> "*" SensorReading : produit
+SensorReading --> GeoLocation : localise
+Alert --> GeoLocation : concerne
+Incident "1" --> "*" Alert : agrège
+Incident --> WorkOrder : peut générer
+Incident --> Notification : déclenche
+CitizenProfile --> Notification : destinataire
+
+note bottom of CitizenProfile
+  Données sensibles —
+  chiffrement, minimisation,
+  base légale (doc à compléter)
+end note
+
+@enduml

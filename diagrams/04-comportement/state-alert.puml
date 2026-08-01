@@ -1,0 +1,20 @@
+@startuml state-alert
+title Machine à états — cycle de vie d'une Alert
+
+[*] --> Raised : événement détecté
+Raised --> UnderReview : agent / règle auto
+UnderReview --> Confirmed : validée
+UnderReview --> Discarded : faux positif
+Confirmed --> Dispatched : ressources assignées
+Dispatched --> Resolved : clôture opérationnelle
+Resolved --> Closed : archivage / rapport
+Discarded --> Closed
+Closed --> [*]
+
+note right of Raised
+  Gestion temps réel :
+  SLA de passage en
+  UnderReview / Confirmed
+end note
+
+@enduml

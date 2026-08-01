@@ -1,0 +1,27 @@
+@startuml sequence-alerte-urgence-s1
+title Séquence — Scénario S1 : détection à notification (alerte urgence)
+
+actor Citoyen as C
+participant "Capteur / Signalement" as Src
+participant "Passerelle edge" as Edge
+participant "Bus événements" as Bus
+participant "Moteur de règles" as Rules
+participant "Orchestration urgence" as Orch
+participant "Référentiel incidents" as Inc
+participant "Service notification" as Notif
+
+Src -> Edge : télémétrie / signalement brut
+Edge -> Bus : publier NormalizedEvent
+Bus -> Rules : stream
+Rules -> Rules : corrélation,\nfiltrage faux positifs
+Rules -> Orch : AlertCandidate(severity, zone)
+Orch -> Inc : créer / mettre à jour Incident
+Orch -> Notif : cibler citoyens (zone, consentement)
+Notif -> C : push / SMS / email
+
+note over Rules, Orch
+  États d'alerte détaillés
+  dans diagramme d'état séparé
+end note
+
+@enduml

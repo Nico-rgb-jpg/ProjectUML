@@ -1,0 +1,25 @@
+@startuml activity-traitement-alerte
+title Activité — traitement d'une alerte (niveau processus)
+
+start
+:Réception événement\n(capteur ou signalement);
+if (Doublon ou\nsignal faible ?) then (oui)
+  :Journaliser & ignorer;
+  stop
+else (non)
+endif
+if (Corrélation avec\nautres sources ?) then (conflit / incertain)
+  :Mise en file\nrevue humaine;
+else (cohérent)
+endif
+if (Gravité >= seuil\nurgence ?) then (oui)
+  :Créer incident urgence;
+  :Dispatcher ressources;
+  :Notifier zone\n(citoyens concernés);
+else (non)
+  :Créer incident standard /\nwork order;
+endif
+:Clôture lorsque\nrésolu;
+stop
+
+@enduml

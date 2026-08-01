@@ -1,0 +1,43 @@
+@startuml use-cases-overview
+title Smart City — cas d'utilisation (vue synthétique)
+
+left to right direction
+
+actor Citoyen as cit
+actor "Agent municipal" as agent
+actor Prestataire as prest
+actor "Opérateur urgence" as urg
+actor "Administrateur SI" as admin
+
+rectangle "Système Smart City" {
+  usecase "Consulter infos\nservices & trafic" as UC1
+  usecase "Signaler un incident /\nune anomalie" as UC2
+  usecase "Recevoir alertes\nciblées" as UC3
+
+  usecase "Superviser trafic\n& interventions" as UC4
+  usecase "Gérer work orders\nprestataires" as UC5
+
+  usecase "Traiter demandes\nmaintenance IoT" as UC6
+
+  usecase "Recevoir dispatch\n& mettre à jour statut" as UC7
+
+  usecase "Configurer intégrations\n& politiques d'accès" as UC8
+}
+
+cit --> UC1
+cit --> UC2
+cit --> UC3
+
+agent --> UC4
+agent --> UC5
+
+prest --> UC6
+
+urg --> UC7
+
+admin --> UC8
+
+UC2 ..> UC4 : <<include>>\n(souvent)
+UC2 ..> UC7 : <<extend>>\n(si urgence)
+
+@enduml

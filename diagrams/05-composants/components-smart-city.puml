@@ -1,0 +1,58 @@
+@startuml components-smart-city
+title Smart City — diagramme de composants (vue logique)
+
+package "Citoyen" {
+  [Application mobile / Web citoyen] as AppC
+}
+
+package "Personnel & prestataires" {
+  [Console agents municipaux] as Console
+  [Portail prestataires] as PortalP
+}
+
+package "Edge & terrain" {
+  [Capteurs IoT\n(trafic, utilitaires)] as Sensors
+  [Passerelles edge\n(agrégation locale)] as EdgeGW
+}
+
+package "Plateforme Smart City" {
+  [API Gateway /\nBFF] as GW
+  [Moteur événements\n(stream / bus)] as Bus
+  [Moteur corrélation\n& règles temps réel] as Rules
+  [Orchestration urgence] as EmergOrch
+  [Référentiel incidents /\nwork orders] as Incidents
+  [Entrepôt / lake\n+ stockage séries temporelles] as DataStore
+  [IAM & journal d'audit] as IAM
+}
+
+database "Bases métier\n(services publics)" as DBUtil
+database "Données trafic\nagrégées" as DBTraffic
+
+Sensors --> EdgeGW : télémétrie
+EdgeGW --> Bus : publication\névénements
+AppC --> GW
+Console --> GW
+PortalP --> GW
+GW --> Bus
+GW --> IAM
+Bus --> Rules
+Rules --> EmergOrch
+Rules --> Incidents
+Bus --> DataStore
+EmergOrch --> Incidents
+Incidents --> DBUtil
+DataStore --> DBTraffic
+
+note bottom of IAM
+  Répond aux exigences
+  sécurité & confidentialité
+  (contrôle d'accès, audit)
+end note
+
+note bottom of Bus
+  Intégration de systèmes
+  hétérogènes via contrats
+  d'événements / API
+end note
+
+@enduml
